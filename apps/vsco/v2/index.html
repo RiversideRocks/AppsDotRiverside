@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <title>Are You a VSCO Girl? Web App</title>
+  <link
+    rel="shortcut icon"
+    href="https://cdn.glitch.com/98b392b2-4fa4-4409-acef-f16478228a77%2FUntitled%20drawing%20(4).jpg?v=1582851308050"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Open Sans";
+      font-size: 22px;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    button {
+      background-color: lime;
+      font-family: "Open Sans";
+      border: none;
+      text-color: white;
+      font-size: 30px;
+      padding: 4px;
+    }
+  </style>
+  <h1>
+    Are you a VSCO girl?
+  </h1>
+  <form>
+    <label for="Snap">What is your current Snap Score?</label><br />
+    <input type="text" id="Snap" name="Snap" /><br />
+    <label for="Insta">How many Instagram followers?</label><br />
+    <input type="text" id="Insta" name="Insta" />
+    <br />
+    <label for="Hours">How many hours are you on your phone?</label><br />
+    <input type="text" id="Hours" name="Hours" />
+  </form>
+  <button onclick="score()">
+    Find out
+  </button>
+  <script>
+    // the code
+    function score() {
+      var x = document.getElementById("Snap").value;
+      var y = document.getElementById("Insta").value;
+      var z = document.getElementById("Hours").value;
+      var result = (parseFloat(x) + parseFloat(y)) * parseFloat(z);
+
+      if (!isNaN(result)) {
+        document.getElementById("answer").innerHTML = "You scored " + result;
+      }
+      if (result >= 0 && result < 50) {
+        document.getElementById("areyou").innerHTML =
+          "You are a non internet person. And thats ok.";
+      } else if (result >= 50 && result < 1000) {
+        document.getElementById("areyou").innerHTML =
+          "You are a responsible person.";
+      } else if (result >= 1000 && result < 5000) {
+        document.getElementById("areyou").innerHTML =
+          "You are a social media novice";
+      } else if (result >= 5000 && result < 20000) {
+        document.getElementById("areyou").innerHTML =
+          "You are closer to being VSCO girl.";
+      } else if (result >= 20000 && result < 40000) {
+        document.getElementById("areyou").innerHTML =
+          "You are close to being a VSCO girl.";
+      } else if (result >= 40000 && result < 100000) {
+        document.getElementById("areyou").innerHTML = "You are a VSCO girl.";
+      } else if ((result = 0)) {
+        document.getElementById("areyou").innerHTML =
+          "Not on social media? Thats ok.";
+      } else {
+        document.getElementById("areyou").innerHTML =
+          "You are a local influencer!";
+      }
+    }
+  </script>
+  <br />
+  <br />
+  <h2 id="answer">
+    0
+  </h2>
+  <h2 id="areyou"></h2>
+  <br />
+  <br />
+  <h2>
+    You can also download our android app
+    <a
+      href="https://cdn.glitch.com/98b392b2-4fa4-4409-acef-f16478228a77%2Fvsco.apk?v=1582892674799"
+      >here</a
+    >. (3.8 megabytes, .apk)
+  </h2>
+  <br />
+  <img
+    src="https://cdn.glitch.com/98b392b2-4fa4-4409-acef-f16478228a77%2FUntitled%20drawing%20(4).jpg?v=1582851308050"
+    height="200"
+    width="200"
+  />
+  <h2>
+    Note: Your are currently viewing the v2 edition of this app. <a href="/apps/vsco/">The v1 edition is more strict.</a>
+  </h2>
+</html>
